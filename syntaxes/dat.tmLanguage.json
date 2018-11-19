@@ -1,0 +1,134 @@
+{
+  "name": "AMPL (data)",
+  "scopeName": "source.dat",
+  "fileTypes": [
+    ".dat"
+  ],
+  "patterns": [
+    {
+      "include": "#general"
+    },
+    {
+      "include": "#argumentcurly"
+    },
+    {
+      "include": "#argumentbracket"
+    }
+  ],
+  "repository": {
+    "general": {
+      "patterns": [
+        {
+          "include": "#linecomment"
+        },
+        {
+          "include": "#blockcomment"
+        },
+        {
+          "include": "#singlequotestring"
+        },
+        {
+          "include": "#doublequotestring"
+        },
+        {
+          "include": "#number"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#operator"
+        }
+      ]
+    },
+    "linecomment": {
+      "match": "(#.*)(?!\\[\\[).*$\\n?",
+      "name": "comment.line.#.ampl"
+    },
+    "blockcomment": {
+      "begin": "/\\*",
+      "end": "\\*/",
+      "name": "comment.block.documentation.ampl"
+    },
+    "singlequotestring": {
+      "name": "string.quoted.single.ampl",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ampl"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ampl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "%(\\w+%|\\d+)",
+          "name": "entity.name.type.ampl"
+        }
+      ]
+    },
+    "doublequotestring": {
+      "name": "string.quoted.double.ampl",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ampl"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ampl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "%(\\w+%|\\d+)",
+          "name": "entity.name.type.ampl"
+        }
+      ]
+    },
+    "number": {
+      "name": "constant.numeric.ampl",
+      "match": "(?<![\\d.])\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?|(?i)([+-]?infinity)"
+    },
+    "keyword": {
+      "name": "keyword.control.ampl",
+      "match": "(?i)\\b((coeff|coef|cover|obj|default|from|to|to_come|net_in|net_out|dimen|dimension|integer|binary|set|param|var|node|ordered|circular|reversed|symbolic|arc|check|close|drop|shell|data|let|fix|unfix|end|function|pipe|format|if|then|else|and|or|exists|forall|in|not|within|while|repeat|for|card|next|nextw|prev|prevw|first|last|member|ord|ord0)\\b)|s\\.t\\."
+    },
+    "operator": {
+      "name": "keyword.operator.ampl",
+      "match": "(\\+|-|\\*|\\/|\\*\\*|=|<=?|>=?|==|\\||\\^|<|>|!|\\.\\.|:=|&|!=|:|/)"
+    },
+    "argumentcurly": {
+      "begin": "\\{",
+      "end": "\\}",
+      "patterns": [
+        {
+          "include": "#general"
+        },
+        {
+          "name": "support.function.ampl",
+          "match": "."
+        }
+      ]
+    },
+    "argumentbracket": {
+      "begin": "\\[",
+      "end": "\\]",
+      "patterns": [
+        {
+          "include": "#general"
+        },
+        {
+          "name": "support.function.ampl",
+          "match": "\\w"
+        }
+      ]
+    }
+  }
+}

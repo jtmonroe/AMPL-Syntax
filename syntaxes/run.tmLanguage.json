@@ -1,0 +1,157 @@
+{
+  "name": "AMPL (include)",
+  "scopeName": "source.run",
+  "fileTypes": [
+    ".run"
+  ],
+  "patterns": [
+    {
+      "include": "#general"
+    },
+    {
+      "include": "#argumentcurly"
+    },
+    {
+      "include": "#argumentbracket"
+    }
+  ],
+  "repository": {
+    "general": {
+      "patterns": [
+        {
+          "include": "#linecomment"
+        },
+        {
+          "include": "#blockcomment"
+        },
+        {
+          "include": "#singlequotestring"
+        },
+        {
+          "include": "#doublequotestring"
+        },
+        {
+          "include": "#number"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#suffix"
+        },
+        {
+          "include": "#operator"
+        }
+      ]
+    },
+    "linecomment": {
+      "match": "(#.*)(?!\\[\\[).*$\\n?",
+      "name": "comment.line.#.ampl"
+    },
+    "blockcomment": {
+      "begin": "/\\*",
+      "end": "\\*/",
+      "name": "comment.block.documentation.ampl"
+    },
+    "singlequotestring": {
+      "name": "string.quoted.single.ampl",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ampl"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ampl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "%(\\w+%|\\d+)",
+          "name": "entity.name.type.ampl"
+        }
+      ]
+    },
+    "doublequotestring": {
+      "name": "string.quoted.double.ampl",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ampl"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ampl"
+        }
+      },
+      "patterns": [
+        {
+          "match": "%(\\w+%|\\d+)",
+          "name": "entity.name.type.ampl"
+        }
+      ]
+    },
+    "number": {
+      "name": "constant.numeric.ampl",
+      "match": "(?<![\\d.])\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?|(?i)([+-]?infinity)"
+    },
+    "keyword": {
+      "name": "keyword.control.ampl",
+      "match": "(?i)\\b((objective|coeff|coef|cover|obj|default|from|to|to_come|net_in|net_out|dimen|dimension|node|ordered|circular|reversed|symbolic|arc|check|close|display|drop|include|print|printf|quit|reset|restore|solve|update|write|shell|model|data|option|let|solution|fix|unfix|end|function|pipe|format|if|then|else|and|or|exists|forall|in|not|within|while|repeat|for|card|next|nextw|prev|prevw|first|last|member|ord|ord0|expand)\\b)|s\\.t\\."
+    },
+    "suffix": {
+      "match": "\\w*\\.(lb|ub|lb0|lb1|lb2|lrc|ub0|ub1|ub2|urc|val|lbs|ubs|init|body|dinit|dual|init0|ldual|slack|udual|lslack|uslack|dinit0|current|down|up)",
+      "captures": {
+        "1": {
+          "name": "support.function.ampl"
+        }
+      }
+    },
+    "operator": {
+      "name": "keyword.operator.ampl",
+      "match": "(\\+|-|\\*|\\/|\\*\\*|=|<=?|>=?|==|\\||\\^|<|>|!|\\.\\.|:=|&|!=|:|/)"
+    },
+    "argumentcurly": {
+      "begin": "\\{",
+      "end": "\\}",
+      "patterns": [
+        {
+          "include": "#general"
+        },
+        {
+          "name": "support.function.ampl",
+          "match": "."
+        }
+      ]
+    },
+    "argumentAftersolver": {
+      "begin": "solver ",
+      "end": ";",
+      "patterns":[
+        {
+          "include": "#general"
+        },
+        {
+          "name": "support.function.ampl"
+        }
+      ]
+    },
+    "argumentbracket": {
+      "begin": "\\[",
+      "end": "\\]",
+      "patterns": [
+        {
+          "include": "#general"
+        },
+        {
+          "name": "support.function.ampl",
+          "match": "\\w"
+        }
+      ]
+    }
+  }
+}

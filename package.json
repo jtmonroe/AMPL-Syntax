@@ -1,0 +1,43 @@
+{
+    "name": "jm-ampl-0-01",
+    "displayName": "JM.AMPL-0.01",
+    "description": "An extension for AMPL language highlighting",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.29.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ampl.run",
+            "aliases": ["AMPL", "ampl"],
+            "extensions": [".run"],
+            "configuration": "./language-configuration.json"
+        }, {
+            "id": "ampl.mod",
+            "aliases": ["AMPL", "ampl"],
+            "extensions": [".mod"],
+            "configuration": "./language-configuration.json"
+        }, {
+            "id": "ampl.dat",
+            "aliases": ["AMPL", "ampl"],
+            "extensions": [".dat"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ampl.run",
+            "scopeName": "source.run",
+            "path": "./syntaxes/run.tmLanguage.json"
+        }, {
+            "language": "ampl.mod",
+            "scopeName": "source.mod",
+            "path": "./syntaxes/mod.tmLanguage.json"
+        }, {
+            "language": "ampl.dat",
+            "scopeName": "source.dat",
+            "path": "./syntaxes/dat.tmLanguage.json"
+        }]
+    }
+}
