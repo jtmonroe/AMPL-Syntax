@@ -15,7 +15,7 @@ Highlights syntax for AMPL in VSCode.
 
 ## Known Issues
 
-Please test and edit. I just wanted to share code that I had made for anyone else who wanted to use it.
+Please test and edit. I just wanted to share code that I had refactored for anyone else who wanted to use it.
 
 ## Release Notes
 
