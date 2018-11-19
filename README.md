@@ -13,6 +13,8 @@ Highlights syntax for AMPL in VSCode.
 
 2. Completion and highlighting for most AMPL terms. 
 
+Take these files and place them in the directory "C:\Users\\"User"\\.vscode\extensions"
+
 
 
 ## Known Issues
