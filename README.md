@@ -7,6 +7,8 @@ A basic package for syntax highlighting AMPL code in VSCode. This is refactored 
 Highlights syntax for AMPL in VSCode.
 
 1. Can add to or remove from each one of the three syntaxes in the syntaxes file in the code. 
+&nbsp; 
+
 ![example pic](https://github.com/jtmonroe/AMPL-Syntax/blob/master/res/AmplPic.PNG)
 
 2. Completion and highlighting for most AMPL terms. 
